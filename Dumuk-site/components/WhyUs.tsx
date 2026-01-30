@@ -43,18 +43,18 @@ export const WhyUs: React.FC<WhyUsProps> = ({ lang }) => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           
           <div>
-            <div className="inline-block px-4 py-1.5 rounded-full border border-white/20 bg-white/5 text-white text-sm font-bold mb-8 backdrop-blur-md">
+            <div className="inline-block px-4 py-1.5 rounded-full border border-white/20 bg-white/5 text-white text-xs font-bold mb-6 backdrop-blur-md">
               {t.whyUs.tag}
             </div>
             
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight">
+            <h2 className="text-3xl md:text-4xl font-black text-white mb-4 leading-tight">
               {t.whyUs.title} <br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-green">
                 {t.whyUs.titleAccent}
               </span>
             </h2>
             
-            <div className="space-y-6 text-gray-400 text-lg leading-relaxed mb-10">
+            <div className="space-y-4 text-gray-400 text-base leading-relaxed mb-8">
                 <p>{t.whyUs.desc}</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="bg-brand-card p-4 rounded-xl border border-white/5 hover:border-brand-green/30 transition-colors">
@@ -75,7 +75,7 @@ export const WhyUs: React.FC<WhyUsProps> = ({ lang }) => {
             <div className="space-y-6">
               {stats.map((stat, index) => (
                 <div key={index} className="relative">
-                  <div className={`flex justify-between items-end mb-2 ${lang === 'en' ? 'flex-row' : 'flex-row-reverse'}`}>
+                  <div className={`flex justify-between items-end mb-2 ${lang === 'en' ? 'flex-row' : 'flex-row'}`}>
                     <span className="text-white font-bold text-base flex items-center gap-2">
                       <CheckCircle2 className="text-brand-green w-4 h-4" />
                       {stat.label}

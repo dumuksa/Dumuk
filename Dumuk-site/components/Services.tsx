@@ -42,9 +42,14 @@ export const Services: React.FC<ServicesProps> = ({ setView, lang }) => {
       <div className="absolute left-0 bottom-20 w-1/2 h-1/2 bg-brand-green/5 blur-[150px] rounded-full pointer-events-none"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-20">
+        <div className="text-center mb-16">
           <span className="text-brand-green font-bold tracking-wider uppercase text-sm">{t.services.tag}</span>
-          <h2 className="text-4xl md:text-6xl font-black text-white mt-2 mb-6">{t.services.title} <span className="text-transparent bg-clip-text bg-gradient-to-l from-brand-blue to-white">{t.services.titleAccent}</span></h2>
+          <h2 className="text-3xl md:text-5xl font-black text-white mt-2 mb-4">
+            {t.services.title}{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-l from-brand-blue to-white">
+              {t.services.titleAccent}
+            </span>
+          </h2>
           <div className="w-32 h-1.5 bg-gradient-to-r from-brand-blue to-brand-green mx-auto rounded-full shadow-[0_0_15px_rgba(5,51,156,0.5)]"></div>
         </div>
 
@@ -68,11 +73,11 @@ export const Services: React.FC<ServicesProps> = ({ setView, lang }) => {
                   </div>
                 </div>
                 
-                <h3 className="text-3xl font-bold text-white mb-6 group-hover:text-brand-green transition-colors">
+                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-brand-green transition-colors">
                   {service.title}
                 </h3>
                 
-                <p className="text-gray-400 text-lg leading-loose mb-8 flex-grow">
+                <p className="text-gray-400 text-base leading-relaxed mb-6 flex-grow">
                   {service.description}
                 </p>
 

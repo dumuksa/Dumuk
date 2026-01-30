@@ -27,34 +27,36 @@ export const Contact: React.FC<ContactProps> = ({ lang }) => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-stretch">
           
           <div className="flex flex-col justify-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-green/10 text-brand-green border border-brand-green/20 w-fit mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-green/10 text-brand-green border border-brand-green/20 w-fit mb-6">
                 <MessageSquare size={18} />
                 <span className="font-bold text-sm uppercase">{t.contact.tag}</span>
             </div>
             
-            <h2 className="text-5xl md:text-6xl font-black text-white mb-8 leading-tight">
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-4 leading-tight">
               {t.contact.title} <br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-l from-brand-blue to-brand-green">
                 {t.contact.titleAccent}
               </span>
             </h2>
-            <p className="text-gray-400 mb-12 text-xl leading-relaxed">
+            <p className="text-gray-400 text-lg leading-relaxed">
               {t.contact.desc}
             </p>
             
-            <div className="space-y-8 mt-auto">
+            <div className="space-y-6 mt-10">
               <div 
-                onClick={() => handleCopy('+966500000000', 'phone')}
-                className="flex items-center gap-6 p-6 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-brand-green/30 transition-all group cursor-pointer relative"
+                onClick={() => handleCopy('+966558549944', 'phone')}
+                className="flex items-center gap-2 p-2 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-brand-green/30 transition-all group cursor-pointer relative"
               >
-                <div className="w-16 h-16 bg-brand-green/20 rounded-full flex items-center justify-center flex-shrink-0 text-brand-green group-hover:bg-brand-green group-hover:text-white transition-all">
-                  <Phone size={32} />
+                <div className="w-12 h-12 bg-brand-green/20 rounded-full flex items-center justify-center flex-shrink-0 text-brand-green group-hover:bg-brand-green group-hover:text-white transition-all">
+                  <Phone size={26} />
                 </div>
                 <div className="flex-grow">
-                  <h4 className="text-white font-bold text-lg mb-1">{t.contact.phoneLabel}</h4>
-                  <p className="text-gray-400 text-xl font-mono group-hover:text-white transition-colors">+966 50 000 0000</p>
+                  <h4 className="text-white font-bold text-sm mb-1">{t.contact.phoneLabel}</h4>
+                  <p className="text-gray-400 text-base font-mono group-hover:text-white transition-colors">+966 55 854 9944</p>
                 </div>
-                <div className="absolute top-4 right-4 text-brand-green/50 opacity-0 group-hover:opacity-100 transition-opacity">
+                <div
+                  className={`absolute top-4 ${lang === 'ar' ? 'left-4' : 'right-4'} text-brand-green/50 opacity-0 group-hover:opacity-100 transition-opacity`}
+                >
                   {copyStatus === 'phone' ? <Check size={20} className="text-brand-green" /> : <Copy size={20} />}
                 </div>
                 {copyStatus === 'phone' && (
@@ -65,17 +67,19 @@ export const Contact: React.FC<ContactProps> = ({ lang }) => {
               </div>
               
               <div 
-                onClick={() => handleCopy('info@dumuk.sa', 'email')}
-                className="flex items-center gap-6 p-6 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-brand-blue/30 transition-all group cursor-pointer relative"
+                onClick={() => handleCopy('dumuksa@gmail.com', 'email')}
+                className="flex items-center gap-2 p-2 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-brand-blue/30 transition-all group cursor-pointer relative"
               >
-                <div className="w-16 h-16 bg-brand-blue/20 rounded-full flex items-center justify-center flex-shrink-0 text-brand-blue group-hover:bg-brand-blue group-hover:text-white transition-all">
-                  <Mail size={32} />
+                <div className="w-12 h-12 bg-brand-blue/20 rounded-full flex items-center justify-center flex-shrink-0 text-brand-blue group-hover:bg-brand-blue group-hover:text-white transition-all">
+                  <Mail size={26} />
                 </div>
                 <div className="flex-grow">
-                  <h4 className="text-white font-bold text-lg mb-1">{t.contact.emailLabel}</h4>
-                  <p className="text-gray-400 text-xl group-hover:text-white transition-colors">info@dumuk.sa</p>
+                  <h4 className="text-white font-bold text-sm mb-1">{t.contact.emailLabel}</h4>
+                  <p className="text-gray-400 text-base group-hover:text-white transition-colors">dumuksa@gmail.com</p>
                 </div>
-                <div className="absolute top-4 right-4 text-brand-blue/50 opacity-0 group-hover:opacity-100 transition-opacity">
+                <div
+                  className={`absolute top-4 ${lang === 'ar' ? 'left-4' : 'right-4'} text-brand-blue/50 opacity-0 group-hover:opacity-100 transition-opacity`}
+                >
                   {copyStatus === 'email' ? <Check size={20} className="text-brand-blue" /> : <Copy size={20} />}
                 </div>
                 {copyStatus === 'email' && (

@@ -18,9 +18,9 @@ export const FAQ: React.FC<FAQProps> = ({ lang }) => {
   return (
     <section id="faq" className="py-24 bg-brand-dark">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">{t.faq.title}</h2>
-          <p className="text-gray-400">{t.faq.subtitle}</p>
+        <div className="text-center mb-12">
+          <h2 className="text-2xl md:text-4xl font-bold text-white mb-3">{t.faq.title}</h2>
+          <p className="text-gray-400 text-sm md:text-base">{t.faq.subtitle}</p>
         </div>
 
         <div className="space-y-4">
