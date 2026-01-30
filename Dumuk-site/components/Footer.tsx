@@ -22,13 +22,13 @@ export const Footer: React.FC<FooterProps> = ({ lang }) => {
 
           <div className="flex flex-col items-center md:items-start gap-4 text-gray-400">
             <h4 className="text-white font-bold uppercase tracking-widest text-sm mb-2">{t.nav.contact}</h4>
-            <a href="tel:+966500000000" className="flex items-center gap-3 hover:text-brand-green transition-colors">
+            <a href="tel:+966558549944" className="flex items-center gap-3 hover:text-brand-green transition-colors">
               <Phone size={18} />
-              <span className="font-mono">+966 50 000 0000</span>
+              <span className="font-mono">+966 55 854 9944</span>
             </a>
-            <a href="mailto:info@dumuk.sa" className="flex items-center gap-3 hover:text-brand-blue transition-colors">
+            <a href="mailto:dumuksa@gmail.com" className="flex items-center gap-3 hover:text-brand-blue transition-colors">
               <Mail size={18} />
-              <span>info@dumuk.sa</span>
+              <span>dumuksa@gmail.com</span>
             </a>
           </div>
           

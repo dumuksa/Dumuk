@@ -65,7 +65,7 @@ export const Navbar: React.FC<NavbarProps> = ({ setView, currentView, lang, togg
               <Logo lang={lang} />
             </div>
 
-            <div className="hidden lg:flex items-center space-x-8 space-x-reverse">
+            <div className="hidden lg:flex items-center gap-8">
               {navLinks.map((link) => (
                 <a
                   key={link.name}

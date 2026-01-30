@@ -23,9 +23,9 @@ export const translations = {
       tag: 'خدماتنا — دوموك',
       title: 'حلولنا',
       titleAccent: 'المتكاملة',
-      lithiumTitle: 'أولًا: حلول الليثيوم',
+      lithiumTitle: 'حلول الليثيوم',
       lithiumDesc: 'نقدّم مجموعة من الحلول المتخصصة التي تعتمد على تقنيات متقدمة في مجال الليثيوم، تشمل: بطاريات عالية الكفاءة وعمر تشغيل أطول، أنظمة طاقة مصممة للاستخدامات الصناعية والتجارية.',
-      logisticsTitle: 'ثانيًا: الخدمات اللوجستية',
+      logisticsTitle: 'الخدمات اللوجستية',
       logisticsDesc: 'ندير الحركة، ونحمي الوقت، ونربط النقاط بين المورد والوجهة بذكاء، من خلال: إدارة شحنات محلية ودولية، تتبّع مباشر للحركة والعمليات، وحلول تخزين وتوزيع مرنة.',
       readMore: 'اقرأ المزيد'
     },
@@ -189,9 +189,9 @@ export const translations = {
       tag: 'Our Services — Dumuk',
       title: 'Integrated',
       titleAccent: 'Solutions',
-      lithiumTitle: 'First: Lithium Solutions',
+      lithiumTitle: 'Lithium Solutions',
       lithiumDesc: 'We provide specialized solutions based on advanced lithium technologies, including high-efficiency batteries, longer cycles, and power systems designed for industrial and commercial use.',
-      logisticsTitle: 'Second: Logistics Services',
+      logisticsTitle: 'Logistics Services',
       logisticsDesc: 'We manage movement, protect time, and intelligently connect points between supplier and destination through local and international shipment management and real-time tracking.',
       readMore: 'Read More'
     },
