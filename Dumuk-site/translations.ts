@@ -136,11 +136,10 @@ export const translations = {
       productsTitle: 'منتجاتنا',
       productsScrollHint: 'اسحب للمزيد',
       products: [
-        { name: 'لمبات ليثيوم' },
-        { name: 'أجهزة قابلة للشحن' },
-        { name: 'خلايا بطاريات' },
-        { name: 'شواحن متخصصة' },
-        { name: 'أنظمة طاقة شمسية' }
+        { name: 'لمبات الليثيوم' },
+        { name: 'بطاريات الليثيوم' },
+        { name: 'خلايا البطاريات' },
+        { name: 'خدمات البطاريات' }
       ],
       centersTitle: 'مراكز الاستلام والتسليم',
       centers: [
@@ -303,10 +302,9 @@ export const translations = {
       productsScrollHint: 'Swipe for more',
       products: [
         { name: 'Lithium Lamps' },
-        { name: 'Rechargeable Devices' },
+        { name: 'Lithium Batteries' },
         { name: 'Battery Cells' },
-        { name: 'Specialized Chargers' },
-        { name: 'Solar Energy Systems' }
+        { name: 'Battery Services' }
       ],
       centersTitle: 'Collection & Delivery Centers',
       centers: [

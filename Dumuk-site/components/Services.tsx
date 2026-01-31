@@ -1,8 +1,10 @@
 import React from 'react';
-import { Truck, BatteryCharging, ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { ViewState, Language } from '../App';
 import { translations } from '../translations';
 import { LucideIcon } from 'lucide-react';
+import lithiumLogo from '../assets/lithium-logo.svg';
+import logisticsLogo from '../assets/logistics-logo.svg';
 
 interface ServicesProps {
     setView: (view: ViewState) => void;
@@ -12,7 +14,7 @@ interface ServicesProps {
 interface ServiceItem {
   title: string;
   description: string;
-  icon: LucideIcon;
+  icon: string;
   gradient: string;
   action: ViewState;
 }
@@ -23,14 +25,14 @@ export const Services: React.FC<ServicesProps> = ({ setView, lang }) => {
     {
       title: t.services.lithiumTitle,
       description: t.services.lithiumDesc,
-      icon: BatteryCharging,
+      icon: lithiumLogo,
       gradient: 'from-brand-green to-emerald-600',
       action: 'lithium'
     },
     {
       title: t.services.logisticsTitle,
       description: t.services.logisticsDesc,
-      icon: Truck,
+      icon: logisticsLogo,
       gradient: 'from-brand-blue to-indigo-600',
       action: 'logistics'
     }
@@ -65,8 +67,12 @@ export const Services: React.FC<ServicesProps> = ({ setView, lang }) => {
               
               <div className="relative z-10 flex flex-col h-full">
                 <div className="flex justify-between items-start mb-8">
-                  <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center shadow-lg shadow-brand-dark/50 group-hover:scale-110 transition-transform duration-300`}>
-                    <service.icon className="w-10 h-10 text-white" />
+                <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center shadow-lg shadow-brand-dark/50 group-hover:scale-110 transition-transform duration-300`}>
+                    <img 
+                      src={service.icon} 
+                      alt={service.title}
+                      className="w-10 h-10 text-white translate-x-[2px] translate-y-[1px]"
+                    />
                   </div>
                   <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300">
                     <ArrowUpRight className="w-6 h-6" />

@@ -2,6 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { BatteryCharging, Hammer, RefreshCcw, ShieldCheck, Zap, ArrowRight, MapPin, Plus, Minus, ArrowUpRight } from 'lucide-react';
 import { Language } from '../App';
 import { translations } from '../translations';
+import product1Img from '../assets/images/lithium-lamps.png';
+import product2Img from '../assets/images/lithium-batteries.png';
+import product3Img from '../assets/images/battery-cells.png';
+import product4Img from '../assets/images/battery-services.png';
+
 
 interface LithiumDetailsProps {
   onBack: () => void;
@@ -20,7 +25,8 @@ export const LithiumDetails: React.FC<LithiumDetailsProps> = ({ onBack, lang }) 
 
   const icons = [Hammer, RefreshCcw, ShieldCheck];
   const advantagesIcons = [Zap, BatteryCharging, ShieldCheck];
-  const productsBgs = ['bg-emerald-900/30', 'bg-teal-900/30', 'bg-green-900/30', 'bg-cyan-900/30', 'bg-emerald-800/30'];
+  const productsBgs = ['bg-emerald-900/30', 'bg-teal-900/30', 'bg-green-900/30', 'bg-cyan-900/30'];
+  const productImages = [product1Img, product2Img, product3Img, product4Img];
 
   return (
     <div className="min-h-screen bg-brand-dark pt-24 pb-12 animate-fade-in-up font-sans">
@@ -101,20 +107,19 @@ export const LithiumDetails: React.FC<LithiumDetailsProps> = ({ onBack, lang }) 
         <div>
           <div className={`flex justify-between items-end mb-6 px-2 ${isRtl ? 'flex-row' : 'flex-row-reverse'}`}>
             <h3 className="text-3xl font-bold text-white">{t.productsTitle}</h3>
-            <div className="text-brand-green text-sm font-bold flex items-center gap-1">
-               {t.productsScrollHint} <ArrowRight size={16} className={isRtl ? 'rotate-180' : 'rotate-0'}/>
-            </div>
           </div>
           
-          <div className="flex gap-6 overflow-x-auto pb-8 snap-x scrollbar-hide">
+          <div className="flex gap-6 overflow-x-auto pb-8 snap-x [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
              {t.products.map((product, i) => (
                 <div key={i} className={`flex-shrink-0 w-72 h-80 ${productsBgs[i % productsBgs.length]} rounded-3xl border border-white/10 relative group overflow-hidden snap-center cursor-pointer hover:border-brand-green/50 transition-all`}>
-                   <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-24 h-24 rounded-full bg-white/10 flex items-center justify-center backdrop-blur-md group-hover:scale-110 transition-transform duration-500">
-                          <BatteryCharging className="w-10 h-10 text-white opacity-50" />
-                      </div>
-                   </div>
-                   <div className={`absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-brand-dark to-transparent ${isRtl ? 'text-right' : 'text-left'}`}>
+                   {/* Image background */}
+                   <img 
+                     src={productImages[i]} 
+                     alt={product.name}
+                     className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                   />
+                   <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/50 to-transparent"></div>
+                   <div className={`absolute bottom-0 left-0 w-full p-6 z-10 ${isRtl ? 'text-right' : 'text-left'}`}>
                       <h4 className="text-xl font-bold text-white group-hover:text-brand-green transition-colors">{product.name}</h4>
                       <p className="text-sm text-gray-400 mt-1">{lang === 'ar' ? 'جودة عالية وضمان شامل' : 'High quality & comprehensive warranty'}</p>
                    </div>
