@@ -17,8 +17,13 @@
         theme: {
           extend: {
             fontFamily: {
-              sans: ['Cairo', 'Inter', 'sans-serif'],
+              sans: ['Zanjabeel','Cairo', 'Inter', 'sans-serif'],
               inter: ['Inter', 'sans-serif'],
+              zanjabeel: ['Zanjabeel', 'sans-serif'],
+            },
+            fontWeight: {
+              normal: '600',
+              bold: '900',    
             },
             colors: {
               brand: {
@@ -86,6 +91,29 @@
       }
     </script>
     <style>
+      @font-face {
+        font-family: 'Zanjabeel';
+        src: url('/assets/fonts/Zanjabeel-Regular.otf') format('opentype');
+        font-weight: 500; 
+        font-style: normal;
+        font-display: swap;
+      }
+      
+      @font-face {
+        font-family: 'Zanjabeel';
+        src: url('/assets/fonts/Zanjabeel-Black.otf') format('opentype');
+        font-weight: 700; 
+        font-style: normal;
+        font-display: swap;
+      }
+      
+      @font-face {
+        font-family: 'Zanjabeel';
+        src: url('/assets/fonts/Zanjabeel-Black.otf') format('opentype');
+        font-weight: 900; 
+        font-style: normal;
+        font-display: swap;
+      }
       body {
         background-color: #0f172a;
         color: #f8fafc;
@@ -128,6 +156,8 @@
         border: 1px solid rgba(255, 255, 255, 0.05);
       }
 
+      [dir="rtl"] { font-family: 'Zanjabeel', sans-serif; }
+      [dir="rtl"] .font-sans { font-family: 'Zanjabeel', sans-serif; }
       [dir="rtl"] .font-inter { font-family: 'Cairo', sans-serif; }
       [dir="ltr"] .font-sans { font-family: 'Inter', sans-serif; }
 
