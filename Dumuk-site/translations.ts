@@ -143,10 +143,7 @@ export const translations = {
       ],
       centersTitle: 'مراكز الاستلام والتسليم',
       centers: [
-        { city: 'الرياض', address: 'شارع عمر بن الخطاب، حي الملز' },
-        { city: 'أبها', address: 'طريق الملك فهد، حي المنسك' },
-        { city: 'جدة', address: 'شارع حراء، حي السلامة' },
-        { city: 'الدمام', address: 'طريق الخليج، حي الشاطئ' }
+        { city: 'القصيم - عنيزة', address: 'شارع الشيخ محمد بن عثيمين، وسط المدينة' },
       ],
       formTitle: 'كن شريكاً معنا',
       formSubtitle: 'ترغب بأن تكون أحد مراكزنا المعتمدة؟ زودنا ببياناتك.',
@@ -308,10 +305,7 @@ export const translations = {
       ],
       centersTitle: 'Collection & Delivery Centers',
       centers: [
-        { city: 'Riyadh', address: 'Omar Bin Al-Khattab St, Al-Malaz' },
-        { city: 'Abha', address: 'King Fahd Rd, Al-Mansak' },
-        { city: 'Jeddah', address: 'Hira St, Al-Salama' },
-        { city: 'Dammam', address: 'Gulf Rd, Al-Shati' }
+        { city: 'Al Qassim – Unaizah', address: 'Sheikh Mohammed bin Uthaymeen Street, City Center' }
       ],
       formTitle: 'Partner With Us',
       formSubtitle: 'Want to be one of our authorized centers? Provide your details.',

@@ -136,7 +136,7 @@ export const Contact: React.FC<ContactProps> = ({ lang }) => {
 
               <button type="button" className="w-full bg-gradient-to-r from-brand-blue to-brand-green text-white font-bold text-lg py-5 rounded-xl hover:shadow-[0_0_30px_rgba(65,166,126,0.3)] hover:scale-[1.02] transition-all flex items-center justify-center gap-3">
                 <span>{t.contact.submit}</span>
-                <Send size={20} className={`${lang === 'ar' ? 'rotate-180' : ''}`}/>
+                <Send size={20} />
               </button>
             </form>
           </div>
