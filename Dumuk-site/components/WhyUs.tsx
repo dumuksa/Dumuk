@@ -106,7 +106,7 @@ export const WhyUs: React.FC<WhyUsProps> = ({ lang }) => {
                   
                   <div className={`absolute bottom-10 z-20 ${lang === 'ar' ? 'right-8' : 'left-8'}`}>
                      <div className="text-6xl font-black text-white/10 absolute -top-10 -right-4 select-none">DUMUK</div>
-                     <h3 className="text-3xl font-bold text-gold mb-2 relative">
+                     <h3 className="pb-4 text-3xl font-bold text-gold relative">
                         {t.whyUs.strategicPartner}
                      </h3>
                      <p className="text-brand-green font-medium relative">{t.whyUs.newHorizons}</p>

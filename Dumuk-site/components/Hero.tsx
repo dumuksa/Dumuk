@@ -43,15 +43,15 @@ export const Hero: React.FC<HeroProps> = ({ lang }) => {
           <span className="text-base font-medium text-gray-200">{t.hero.badge}</span>
         </div>
 
-        <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-4 tracking-tight">
+        <h1 className="text-3xl md:text-5xl lg:text-5xl font-black text-white leading-tight mb-4 tracking-tight">
           {t.hero.titleLine1} <br />
-          <span className="text-gradient pb-2 my-2 inline-block">
+          <span className="text-gradient py-4 inline-block">
              {t.hero.titleLine2}
           </span> <br />
           {t.hero.titleLine3}
         </h1>
 
-        <p className="mt-5 max-w-3xl mx-auto text-base md:text-lg text-gray-400 leading-relaxed font-light">
+        <p className="mt-7 max-w-3xl mx-auto text-base md:text-lg text-gray-400 leading-relaxed font-light">
           {lang === 'ar' ? (
             <>في <span className="text-white font-bold">دوموك</span>، نضع معايير جديدة لنقل الطاقة والمواد الحساسة. <br className="hidden md:block" />خبرة، أمان، وسرعة تسبق الزمن.</>
           ) : (
