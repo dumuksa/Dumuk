@@ -60,7 +60,7 @@ export const translations = {
       copied: 'تم النسخ!'
     },
     footer: {
-      rights: 'جميع الحقوق محفوظة © 2024 دوموك للخدمات اللوجستية',
+      rights: 'جميع الحقوق محفوظة © 2025 دوموك للخدمات اللوجستية',
       privacy: 'سياسة الخصوصية',
       terms: 'الشروط والأحكام'
     },
@@ -222,7 +222,7 @@ export const translations = {
       copied: 'Copied!'
     },
     footer: {
-      rights: 'All Rights Reserved © 2024 Dumuk Logistics',
+      rights: 'All Rights Reserved © 2025 Dumuk Logistics',
       privacy: 'Privacy Policy',
       terms: 'Terms & Conditions'
     },

@@ -105,7 +105,7 @@ export const LogisticsDetails: React.FC<LogisticsDetailsProps> = ({ onBack, lang
              {/* Content */}
              <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 z-10">
                  <div className="bg-white/10 backdrop-blur-md px-8 py-6 rounded-2xl border border-white/20">
-                    <h2 className="text-3xl md:text-5xl font-black text-white mb-2 drop-shadow-lg tracking-tight">
+                    <h2 className="pt-6 text-3xl md:text-5xl font-black text-white mb-2 drop-shadow-lg tracking-tight">
                         {t.breakTitle}
                     </h2>
                     <p className="text-white/90 text-lg max-w-2xl font-medium">

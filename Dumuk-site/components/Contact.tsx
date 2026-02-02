@@ -34,7 +34,7 @@ export const Contact: React.FC<ContactProps> = ({ lang }) => {
             
             <h2 className="text-4xl md:text-5xl font-black text-white mb-4 leading-tight">
               {t.contact.title} <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-l from-brand-blue to-brand-green">
+              <span className="block mt-3 py-4 text-transparent bg-clip-text bg-gradient-to-l from-brand-blue to-brand-green">
                 {t.contact.titleAccent}
               </span>
             </h2>
@@ -52,7 +52,9 @@ export const Contact: React.FC<ContactProps> = ({ lang }) => {
                 </div>
                 <div className="flex-grow">
                   <h4 className="text-white font-bold text-sm mb-1">{t.contact.phoneLabel}</h4>
-                  <p className="text-gray-400 text-base font-mono group-hover:text-white transition-colors">+966 55 854 9944</p>
+                  <p className="text-gray-400 text-base font-mono group-hover:text-white transition-colors">
+                    <bdi>+966-55-854-9944</bdi>
+                  </p>
                 </div>
                 <div
                   className={`absolute top-4 ${lang === 'ar' ? 'left-4' : 'right-4'} text-brand-green/50 opacity-0 group-hover:opacity-100 transition-opacity`}

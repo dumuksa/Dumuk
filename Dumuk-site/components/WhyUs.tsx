@@ -49,7 +49,7 @@ export const WhyUs: React.FC<WhyUsProps> = ({ lang }) => {
             
             <h2 className="text-3xl md:text-4xl font-black text-white mb-4 leading-tight">
               {t.whyUs.title} <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-green">
+              <span className="block mt-2 py-3 text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-green">
                 {t.whyUs.titleAccent}
               </span>
             </h2>
@@ -106,7 +106,7 @@ export const WhyUs: React.FC<WhyUsProps> = ({ lang }) => {
                   
                   <div className={`absolute bottom-10 z-20 ${lang === 'ar' ? 'right-8' : 'left-8'}`}>
                      <div className="text-6xl font-black text-white/10 absolute -top-10 -right-4 select-none">DUMUK</div>
-                     <h3 className="pb-4 text-3xl font-bold text-gold relative">
+                     <h3 className="pb-4 text-3xl font-bold text-gold mb-2 relative">
                         {t.whyUs.strategicPartner}
                      </h3>
                      <p className="text-brand-green font-medium relative">{t.whyUs.newHorizons}</p>

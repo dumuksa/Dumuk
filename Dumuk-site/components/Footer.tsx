@@ -24,7 +24,9 @@ export const Footer: React.FC<FooterProps> = ({ lang }) => {
             <h4 className="text-white font-bold uppercase tracking-widest text-sm mb-2">{t.nav.contact}</h4>
             <a href="tel:+966558549944" className="flex items-center gap-3 hover:text-brand-green transition-colors">
               <Phone size={18} />
-              <span className="font-mono">+966 55 854 9944</span>
+              <span className="font-mono">
+                <bdi>+966-55-854-9944</bdi>
+                </span>
             </a>
             <a href="mailto:dumuksa@gmail.com" className="flex items-center gap-3 hover:text-brand-blue transition-colors">
               <Mail size={18} />
