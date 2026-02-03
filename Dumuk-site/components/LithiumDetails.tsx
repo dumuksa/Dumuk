@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { BatteryCharging, Hammer, RefreshCcw, ShieldCheck, Zap, ArrowRight, MapPin, Plus, Minus, ArrowUpRight } from 'lucide-react';
+import { BatteryCharging, Hammer, RefreshCcw, ShieldCheck, Zap, ArrowRight, MapPin, Plus, Minus, ArrowUpRight, CheckCircle2 } from 'lucide-react';
 import { Language } from '../App';
 import { translations } from '../translations';
 import product1Img from '../assets/images/lithium-lamps.png';
 import product2Img from '../assets/images/lithium-batteries.png';
 import product3Img from '../assets/images/battery-cells.png';
 import product4Img from '../assets/images/battery-services.png';
+import emailjs from '@emailjs/browser';
 
 
 interface LithiumDetailsProps {
@@ -16,6 +17,74 @@ interface LithiumDetailsProps {
 export const LithiumDetails: React.FC<LithiumDetailsProps> = ({ onBack, lang }) => {
   const t = translations[lang].lithiumDetails;
   const isRtl = lang === 'ar';
+
+  const [partnerForm, setPartnerForm] = useState({
+    formOrg: '',
+    formCity: '',
+    formPhone: '',
+    formAddress: '',
+  });
+  const [partnerSubmitted, setPartnerSubmitted] = useState(false);
+  const [partnerLoading, setPartnerLoading] = useState(false);
+  const [partnerPhoneError, setPartnerPhoneError] = useState<string | null>(null);
+
+  const validatePartnerPhone = () => {
+    const raw = partnerForm.formPhone || '';
+    const digits = raw.replace(/\D/g, '');
+
+    // Basic Saudi mobile pattern: 05XXXXXXXX (10 digits) or +9665XXXXXXXX (12 digits)
+    const isLocal = digits.startsWith('05') && digits.length === 10;
+    const isIntl = digits.startsWith('9665') && digits.length === 12;
+
+    if (!digits || (!isLocal && !isIntl)) {
+      setPartnerPhoneError(t.partnerPhoneError);
+      return false;
+    }
+
+    setPartnerPhoneError(null);
+    return true;
+  };
+
+  const handlePartnerSubmit = () => {
+    if (!validatePartnerPhone()) return;
+
+    setPartnerLoading(true);
+
+    emailjs
+      .send(
+        'service_zg0afsu',
+        'template_286ui1f',
+        {
+          formOrg: partnerForm.formOrg,
+          formCity: partnerForm.formCity,
+          formPhone: partnerForm.formPhone,
+          formAddress: partnerForm.formAddress,
+          time: new Date().toLocaleString(),
+        },
+        'TePMlWYolZ2pxDaj3'
+      )
+      .then(() => {
+        setPartnerSubmitted(true);
+        // Clear form after successful submit
+        setPartnerForm({
+          formOrg: '',
+          formCity: '',
+          formPhone: '',
+          formAddress: '',
+        });
+        // Auto-hide success message after a few seconds
+        setTimeout(() => {
+          setPartnerSubmitted(false);
+        }, 5000);
+      })
+      .catch((error) => {
+        console.error('EmailJS error:', error);
+      })
+      .finally(() => {
+        setPartnerLoading(false);
+      });
+  };
+    
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -149,25 +218,109 @@ export const LithiumDetails: React.FC<LithiumDetailsProps> = ({ onBack, lang }) 
               </div>
            </div>
 
-           <div className="bg-gradient-to-br from-brand-green/10 to-brand-dark p-8 rounded-3xl border border-brand-green/20 relative overflow-hidden">
-              <div className="relative z-10">
-                  <h3 className="text-2xl font-bold text-white mb-2">{t.formTitle}</h3>
-                  <p className="text-gray-400 mb-6 text-sm">{t.formSubtitle}</p>
-                  
-                  <form className="space-y-4">
-                      <div className="grid grid-cols-2 gap-4">
-                          <input type="text" placeholder={t.formOrg} className="bg-brand-dark/50 border border-white/10 rounded-lg p-3 text-white text-sm focus:border-brand-green focus:outline-none" />
-                          <input type="text" placeholder={t.formCity} className="bg-brand-dark/50 border border-white/10 rounded-lg p-3 text-white text-sm focus:border-brand-green focus:outline-none" />
-                      </div>
-                      <input type="tel" placeholder={t.formPhone} className={`w-full bg-brand-dark/50 border border-white/10 rounded-lg p-3 text-white text-sm focus:border-brand-green focus:outline-none ${isRtl ? 'text-right' : 'text-left'}`} dir={isRtl ? 'rtl' : 'ltr'} />
-                      <input type="text" placeholder={t.formAddress} className="w-full bg-brand-dark/50 border border-white/10 rounded-lg p-3 text-white text-sm focus:border-brand-green focus:outline-none" />
-                      
-                      <button type="button" className="w-full bg-brand-green hover:bg-brand-green/90 text-white font-bold py-3 rounded-lg shadow-lg shadow-brand-green/20 transition-all flex items-center justify-center gap-2 mt-2">
-                          <span>{t.formSubmit}</span>
-                          <ArrowUpRight size={18} />
-                      </button>
-                      <p className="text-xs text-gray-500 text-center mt-2">{t.formHint}</p>
-                  </form>
+           <div className="bg-gradient-to-br from-brand-green/10 to-brand-dark p-8 rounded-3xl border border-brand-green/20 relative overflow-hidden min-h-[360px]">
+              <div className="relative z-10 h-full">
+                  {/* Success overlay */}
+                  <div
+                    className={`absolute inset-0 px-8 pb-8 pt-12 flex flex-col items-center justify-center text-center transition-all duration-500 ease-in-out ${
+                      partnerSubmitted
+                        ? 'opacity-100 scale-100 pointer-events-auto'
+                        : 'opacity-0 scale-95 pointer-events-none'
+                    }`}
+                  >
+                    <div className="w-20 h-20 bg-gradient-to-br from-brand-green to-emerald-600 rounded-full flex items-center justify-center mb-5 shadow-[0_0_30px_rgba(65,166,126,0.4)]">
+                      <CheckCircle2 size={40} className="text-white" strokeWidth={2.5} />
+                    </div>
+                    <h4 className="text-2xl font-black text-white mb-3">
+                      {t.partnerSuccessTitle}
+                    </h4>
+                    <p className="text-gray-200 text-sm leading-relaxed max-w-md">
+                      {t.partnerSuccessMessage}
+                    </p>
+                    <div className="mt-6 w-24 h-1 bg-gradient-to-r from-brand-green to-brand-blue rounded-full" />
+                  </div>
+
+                  {/* Form block + heading */}
+                  <div
+                    className={`transition-all duration-500 ease-in-out h-full flex flex-col ${
+                      partnerSubmitted
+                        ? 'opacity-0 scale-95 pointer-events-none'
+                        : 'opacity-100 scale-100 pointer-events-auto'
+                    }`}
+                  >
+                    <div>
+                      <h3 className="text-2xl font-bold text-white mb-2">{t.formTitle}</h3>
+                      <p className="text-gray-400 mb-6 text-sm">{t.formSubtitle}</p>
+                    </div>
+
+                    <form className="space-y-4 mt-auto">
+                        <div className="grid grid-cols-2 gap-4">
+                            <input
+                              type="text"
+                              placeholder={t.formCity}
+                              value={partnerForm.formCity}
+                              onChange={(e) => {
+                                const onlyLetters = e.target.value.replace(/[0-9٠-٩]/g, '');
+                                setPartnerForm({ ...partnerForm, formCity: onlyLetters });
+                              }}
+                              className="bg-brand-dark/50 border border-white/10 rounded-lg p-3 text-white text-sm focus:border-brand-green focus:outline-none"
+                            />
+                            <input
+                              type="text"
+                              placeholder={t.formOrg}
+                              value={partnerForm.formOrg}
+                              onChange={(e) => setPartnerForm({ ...partnerForm, formOrg: e.target.value })}
+                              className="bg-brand-dark/50 border border-white/10 rounded-lg p-3 text-white text-sm focus:border-brand-green focus:outline-none"
+                            />
+                        </div>
+                        <div className="space-y-1">
+                          <input
+                            type="tel"
+                            inputMode="numeric"
+                            placeholder={t.formPhone}
+                            value={partnerForm.formPhone}
+                            onChange={(e) => {
+                              const onlyDigits = e.target.value.replace(/\D/g, '');
+                              setPartnerForm({ ...partnerForm, formPhone: onlyDigits });
+                              if (partnerPhoneError) {
+                                setPartnerPhoneError(null);
+                              }
+                            }}
+                            className={`w-full bg-brand-dark/50 border rounded-lg p-3 text-white text-sm focus:outline-none ${
+                              partnerPhoneError ? 'border-red-500 focus:border-red-500' : 'border-white/10 focus:border-brand-green'
+                            } ${isRtl ? 'text-right' : 'text-left'}`}
+                            dir={isRtl ? 'rtl' : 'ltr'}
+                          />
+                          {partnerPhoneError && (
+                            <p className="text-xs text-red-400 mt-1 text-start">
+                              {partnerPhoneError}
+                            </p>
+                          )}
+                        </div>
+                        <input
+                          type="text"
+                          placeholder={t.formAddress}
+                          value={partnerForm.formAddress}
+                          onChange={(e) => setPartnerForm({ ...partnerForm, formAddress: e.target.value })}
+                          className="w-full bg-brand-dark/50 border border-white/10 rounded-lg p-3 text-white text-sm focus:border-brand-green focus:outline-none"
+                        />
+                        
+                        <button
+                          type="button"
+                          onClick={handlePartnerSubmit}
+                          disabled={partnerLoading}
+                          className="w-full bg-brand-green hover:bg-brand-green/90 disabled:hover:bg-brand-green disabled:opacity-60 disabled:cursor-not-allowed text-white font-bold py-3 rounded-lg shadow-lg shadow-brand-green/20 transition-all flex items-center justify-center gap-2 mt-2"
+                        >
+                            <span>
+                              {partnerLoading
+                                ? (lang === 'ar' ? 'جاري الإرسال...' : 'Sending...')
+                                : t.formSubmit}
+                            </span>
+                            <ArrowUpRight size={18} />
+                        </button>
+                        <p className="text-xs text-gray-500 text-center mt-2">{t.formHint}</p>
+                    </form>
+                  </div>
               </div>
            </div>
         </div>

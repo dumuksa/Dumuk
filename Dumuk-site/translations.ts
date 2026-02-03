@@ -155,6 +155,9 @@ export const translations = {
       formAddress: 'عنوان الموقع المقترح',
       formSubmit: 'إرسال الطلب',
       formHint: '* التأهل للمراكز اختياري ويخضع للتقييم.',
+      partnerSuccessTitle: 'شكراً لانضمامك!',
+      partnerSuccessMessage: 'تم استلام طلب الشراكة بنجاح. سنتواصل معك خلال وقت قصير لاستكمال التفاصيل.',
+      partnerPhoneError: 'يرجى إدخال رقم جوال سعودي صحيح (مثال: 05XXXXXXXX)',
       faqTitle: 'أسئلة شائعة',
       faqs: [
         { q: "كيف أعرف إذا بطاريتي قابلة للإصلاح؟", a: "غالبًا معظم أنواع البطاريات يمكن إصلاحها، ولكن يتم التأكد النهائي بعد الفحص الفني الدقيق للخلايا ولوحة التحكم (BMS)." },
@@ -319,6 +322,9 @@ export const translations = {
       formAddress: 'Proposed Location Address',
       formSubmit: 'Submit Request',
       formHint: '* Center eligibility is optional and subject to evaluation.',
+      partnerSuccessTitle: 'Thank you for your interest!',
+      partnerSuccessMessage: 'Your partner request has been received. We will contact you shortly to complete the details.',
+      partnerPhoneError: 'Please enter a valid Saudi mobile number (e.g. 05XXXXXXXX or +9665XXXXXXXX).',
       faqTitle: 'Common Questions',
       faqs: [
         { q: "How do I know if my battery is repairable?", a: "Most battery types can be repaired, but final confirmation is made after technical inspection of cells and BMS." },

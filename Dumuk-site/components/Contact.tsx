@@ -12,6 +12,7 @@ export const Contact: React.FC<ContactProps> = ({ lang }) => {
   const t = translations[lang];
   const [copyStatus, setCopyStatus] = useState<'phone' | 'email' | null>(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSending, setIsSending] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
 
   const SERVICE_ID = 'service_zg0afsu';
@@ -28,6 +29,10 @@ export const Contact: React.FC<ContactProps> = ({ lang }) => {
     e.preventDefault();
     if (!formRef.current) return;
 
+    // prevent double‑submits
+    if (isSending) return;
+    setIsSending(true);
+
     emailjs
       .sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY)
       .then(() => {
@@ -41,6 +46,9 @@ export const Contact: React.FC<ContactProps> = ({ lang }) => {
       .catch((error) => {
         console.error(error);
         alert(lang === 'ar' ? 'فشل الإرسال ❌' : 'Failed to send ❌');
+      })
+      .finally(() => {
+        setIsSending(false);
       });
   };
 
@@ -156,8 +164,14 @@ export const Contact: React.FC<ContactProps> = ({ lang }) => {
 
                 <textarea name="message" rows={5} placeholder={t.contact.messagePlaceholder} className="w-full bg-brand-dark border-2 border-white/10 rounded-xl px-5 py-4 text-white resize-none focus:border-brand-green focus:outline-none transition-colors" required />
 
-                <button type="submit" className="w-full bg-gradient-to-r from-brand-blue to-brand-green text-white font-bold text-lg py-5 rounded-xl flex items-center justify-center gap-3 hover:shadow-[0_0_30px_rgba(65,166,126,0.4)] hover:scale-[1.02] transition-all">
-                  {t.contact.submit}
+                <button
+                  type="submit"
+                  disabled={isSending}
+                  className="w-full bg-gradient-to-r from-brand-blue to-brand-green text-white font-bold text-lg py-5 rounded-xl flex items-center justify-center gap-3 hover:shadow-[0_0_30px_rgba(65,166,126,0.4)] hover:scale-[1.02] transition-all disabled:opacity-60 disabled:hover:scale-100 disabled:cursor-not-allowed"
+                >
+                  {isSending
+                    ? (lang === 'ar' ? 'جاري الإرسال...' : 'Sending...')
+                    : t.contact.submit}
                   <Send size={20} />
                 </button>
               </form>
