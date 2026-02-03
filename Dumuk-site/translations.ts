@@ -57,7 +57,9 @@ export const translations = {
       subjectPlaceholder: 'كيف يمكننا مساعدتك؟',
       messagePlaceholder: 'تفاصيل المشروع...',
       submit: 'إرسال الآن',
-      copied: 'تم النسخ!'
+      copied: 'تم النسخ!',
+      successTitle: 'شكراً لك!',
+      successMessage: 'تم إرسال رسالتك بنجاح. سنتواصل معك قريباً.'
     },
     footer: {
       rights: 'جميع الحقوق محفوظة © 2025 دوموك للخدمات اللوجستية',
@@ -219,7 +221,9 @@ export const translations = {
       subjectPlaceholder: 'How can we help?',
       messagePlaceholder: 'Project details...',
       submit: 'Send Now',
-      copied: 'Copied!'
+      copied: 'Copied!',
+      successTitle: 'Thank You!',
+      successMessage: 'Your message has been sent successfully. We\'ll reach out to you soon.'
     },
     footer: {
       rights: 'All Rights Reserved © 2025 Dumuk Logistics',
