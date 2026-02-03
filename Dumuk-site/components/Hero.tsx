@@ -9,6 +9,14 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ lang }) => {
   const t = translations[lang];
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 bg-brand-dark">
@@ -60,7 +68,10 @@ export const Hero: React.FC<HeroProps> = ({ lang }) => {
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-5">
-          <button className="relative group w-full sm:w-auto min-w-[180px]">
+          <button
+            className="relative group w-full sm:w-auto min-w-[180px]"
+            onClick={() => scrollToSection('contact')}
+          >
             <div className="absolute -inset-1 bg-gradient-to-r from-brand-blue to-brand-green rounded-full blur opacity-70 group-hover:opacity-100 transition duration-200"></div>
             <div className="relative px-8 py-4 bg-brand-dark rounded-full leading-none flex items-center justify-center gap-3 border border-white/10">
               <span className="text-white font-bold text-lg group-hover:text-brand-green transition-all">{t.hero.cta1}</span>
@@ -68,7 +79,10 @@ export const Hero: React.FC<HeroProps> = ({ lang }) => {
             </div>
           </button>
           
-          <button className="w-full sm:w-auto min-w-[180px] px-8 py-4 rounded-full font-bold text-lg bg-white/5 text-white hover:bg-white/10 border border-white/10 transition-all flex items-center justify-center gap-3 backdrop-blur-sm">
+          <button
+            className="w-full sm:w-auto min-w-[180px] px-8 py-4 rounded-full font-bold text-lg bg-white/5 text-white hover:bg-white/10 border border-white/10 transition-all flex items-center justify-center gap-3 backdrop-blur-sm"
+            onClick={() => scrollToSection('services')}
+          >
             <Zap className="w-5 h-5 text-brand-blue fill-current" />
             {t.hero.cta2}
           </button>
