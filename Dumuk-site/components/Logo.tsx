@@ -1,7 +1,7 @@
 import React from 'react';
 import { Language } from '../App';
 import { translations } from '../translations';
-import logoImg from '../assets/logo.svg';
+import logoImg from '/logo-light.svg';
 
 interface LogoProps {
   className?: string;

@@ -152,13 +152,13 @@ export const Contact: React.FC<ContactProps> = ({ lang }) => {
                   : 'opacity-100 scale-100 pointer-events-auto'
               }`}
             >
-              <h3 className="text-3xl font-bold text-white mb-8">{t.contact.formTitle}</h3>
+            <h3 className="text-3xl font-bold text-white mb-8">{t.contact.formTitle}</h3>
 
-              <form ref={formRef} onSubmit={handleSubmit} className="space-y-6 relative z-10">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6 relative z-10">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <input name="from_name" type="text" placeholder={t.contact.namePlaceholder} className="w-full bg-brand-dark border-2 border-white/10 rounded-xl px-5 py-4 text-white focus:border-brand-green focus:outline-none transition-colors" required />
                   <input name="from_email" type="email" placeholder={t.contact.emailPlaceholder} className="w-full bg-brand-dark border-2 border-white/10 rounded-xl px-5 py-4 text-white focus:border-brand-green focus:outline-none transition-colors" required />
-                </div>
+              </div>
 
                 <input name="subject" type="text" placeholder={t.contact.subjectPlaceholder} className="w-full bg-brand-dark border-2 border-white/10 rounded-xl px-5 py-4 text-white focus:border-brand-green focus:outline-none transition-colors" required />
 
@@ -172,9 +172,9 @@ export const Contact: React.FC<ContactProps> = ({ lang }) => {
                   {isSending
                     ? (lang === 'ar' ? 'جاري الإرسال...' : 'Sending...')
                     : t.contact.submit}
-                  <Send size={20} />
-                </button>
-              </form>
+                <Send size={20} />
+              </button>
+            </form>
             </div>
           </div>
 

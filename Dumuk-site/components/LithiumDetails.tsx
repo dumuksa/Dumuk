@@ -249,12 +249,12 @@ export const LithiumDetails: React.FC<LithiumDetailsProps> = ({ onBack, lang }) 
                     }`}
                   >
                     <div>
-                      <h3 className="text-2xl font-bold text-white mb-2">{t.formTitle}</h3>
-                      <p className="text-gray-400 mb-6 text-sm">{t.formSubtitle}</p>
+                  <h3 className="text-2xl font-bold text-white mb-2">{t.formTitle}</h3>
+                  <p className="text-gray-400 mb-6 text-sm">{t.formSubtitle}</p>
                     </div>
-
+                  
                     <form className="space-y-4 mt-auto">
-                        <div className="grid grid-cols-2 gap-4">
+                      <div className="grid grid-cols-2 gap-4">
                             <input
                               type="text"
                               placeholder={t.formCity}
@@ -296,7 +296,7 @@ export const LithiumDetails: React.FC<LithiumDetailsProps> = ({ onBack, lang }) 
                               {partnerPhoneError}
                             </p>
                           )}
-                        </div>
+                      </div>
                         <input
                           type="text"
                           placeholder={t.formAddress}
@@ -304,7 +304,7 @@ export const LithiumDetails: React.FC<LithiumDetailsProps> = ({ onBack, lang }) 
                           onChange={(e) => setPartnerForm({ ...partnerForm, formAddress: e.target.value })}
                           className="w-full bg-brand-dark/50 border border-white/10 rounded-lg p-3 text-white text-sm focus:border-brand-green focus:outline-none"
                         />
-                        
+                      
                         <button
                           type="button"
                           onClick={handlePartnerSubmit}
@@ -316,10 +316,10 @@ export const LithiumDetails: React.FC<LithiumDetailsProps> = ({ onBack, lang }) 
                                 ? (lang === 'ar' ? 'جاري الإرسال...' : 'Sending...')
                                 : t.formSubmit}
                             </span>
-                            <ArrowUpRight size={18} />
-                        </button>
-                        <p className="text-xs text-gray-500 text-center mt-2">{t.formHint}</p>
-                    </form>
+                          <ArrowUpRight size={18} />
+                      </button>
+                      <p className="text-xs text-gray-500 text-center mt-2">{t.formHint}</p>
+                  </form>
                   </div>
               </div>
            </div>

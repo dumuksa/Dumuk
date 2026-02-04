@@ -2,9 +2,23 @@
 <html lang="ar" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <!-- Favicon: light & dark mode -->
+  <!-- Favicon: light & dark mode -->
+  <link id="favicon" rel="icon" type="image/svg+xml" href="/logo-dark.svg">
+  <script>
+    const favicon = document.getElementById('favicon');
+    const media = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function updateFavicon(e) {
+      favicon.href = e.matches ? '/logo-light.svg' : '/logo-dark.svg';
+    }
+    // initial load
+    updateFavicon(media);
+    // listen for theme changes
+    media.addEventListener('change', updateFavicon);
+  </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>دوموك | Dumuk </title>
+    <title> Dumuk </title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Cairo for Arabic, Inter for English -->
