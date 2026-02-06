@@ -11,36 +11,30 @@ interface FooterProps {
 export const Footer: React.FC<FooterProps> = ({ lang }) => {
   const t = translations[lang];
   return (
-    <footer className="bg-black py-16 border-t border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
+    <footer className="bg-brand-dark/95 backdrop-blur-xl py-8 border-t border-white/10 relative">
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/30 pointer-events-none"></div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           
-          <div className="flex flex-col items-center md:items-start gap-4">
-            <Logo className="scale-75 origin-right" lang={lang} />
-            <p className="text-gray-500 text-sm mt-2">{t.footer.rights}</p>
+          <div className="flex items-center gap-4">
+            <Logo className="scale-75" lang={lang} />
+            <p className="text-gray-500 text-xs">{t.footer.rights}</p>
           </div>
 
-          <div className="flex flex-col items-center md:items-start gap-4 text-gray-400">
-            <h4 className="text-white font-bold uppercase tracking-widest text-sm mb-2">{t.nav.contact}</h4>
-            <a href="tel:+966558549944" className="flex items-center gap-3 hover:text-brand-green transition-colors">
-              <Phone size={18} />
-              <span className="font-mono">
+          <div className="flex items-center gap-6 text-sm">
+            <a href="tel:+966558549944" className="flex items-center gap-2 text-gray-400 hover:text-brand-green transition-colors">
+              <Phone size={16} />
+              <span className="font-mono text-xs">
                 <bdi>+966-55-854-9944</bdi>
-                </span>
+              </span>
             </a>
-            <a href="mailto:dumuksa@gmail.com" className="flex items-center gap-3 hover:text-brand-blue transition-colors">
-              <Mail size={18} />
-              <span>dumuksa@gmail.com</span>
+            <a href="mailto:dumuksa@gmail.com" className="flex items-center gap-2 text-gray-400 hover:text-brand-blue transition-colors">
+              <Mail size={16} />
+              <span className="text-xs">dumuksa@gmail.com</span>
             </a>
-          </div>
-          
-          <div className="flex flex-col items-center md:items-end gap-6 h-full justify-center">
-            <div className="flex gap-6">
-               <a href="#" className="text-gray-500 hover:text-white transition-colors">{t.footer.privacy}</a>
-               <a href="#" className="text-gray-500 hover:text-white transition-colors">{t.footer.terms}</a>
-            </div>
-            <div className="flex gap-4">
-               {/* Social placeholders if needed */}
+            <div className="flex gap-4 text-gray-500">
+              <a href="#" className="hover:text-white transition-colors text-xs">{t.footer.privacy}</a>
+              <a href="#" className="hover:text-white transition-colors text-xs">{t.footer.terms}</a>
             </div>
           </div>
 
