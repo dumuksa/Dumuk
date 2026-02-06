@@ -141,7 +141,7 @@ export const translations = {
         { name: 'لمبات الليثيوم' },
         { name: 'بطاريات الليثيوم' },
         { name: 'خلايا البطاريات' },
-        { name: 'خدمات البطاريات' }
+        { name: 'محطة طاقة محمولة' }
       ],
       centersTitle: 'مراكز الاستلام والتسليم',
       centers: [
@@ -308,7 +308,7 @@ export const translations = {
         { name: 'Lithium Lamps' },
         { name: 'Lithium Batteries' },
         { name: 'Battery Cells' },
-        { name: 'Battery Services' }
+        { name: 'Portable Power Station' }
       ],
       centersTitle: 'Collection & Delivery Centers',
       centers: [

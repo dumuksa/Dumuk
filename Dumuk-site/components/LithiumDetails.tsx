@@ -5,7 +5,7 @@ import { translations } from '../translations';
 import product1Img from '../assets/images/lithium-lamps.png';
 import product2Img from '../assets/images/lithium-batteries.png';
 import product3Img from '../assets/images/battery-cells.png';
-import product4Img from '../assets/images/battery-services.png';
+import product4Img from '../assets/images/power-station.png';
 import emailjs from '@emailjs/browser';
 
 
@@ -183,7 +183,7 @@ export const LithiumDetails: React.FC<LithiumDetailsProps> = ({ onBack, lang }) 
                 <div key={i} className={`flex-shrink-0 w-72 h-80 ${productsBgs[i % productsBgs.length]} rounded-3xl border border-white/10 relative group overflow-hidden snap-center cursor-pointer hover:border-brand-green/50 transition-all`}>
                    {/* Image background */}
                    <img 
-                     src={productImages[i]} 
+                     src={productImages[i] || productImages[0]} 
                      alt={product.name}
                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                    />
